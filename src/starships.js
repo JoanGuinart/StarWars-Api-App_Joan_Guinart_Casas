@@ -18,7 +18,7 @@ export const Naves = () => {
   }, []);
 
   return (
-    <div id="first-div" className="bg-black">
+    <div id="first-div" className="bg-black flex justify-center">
       
       <div className="flex justify-center">
         <ul>
