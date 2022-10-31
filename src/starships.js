@@ -7,7 +7,7 @@ export const Naves = () => {
   const [nombreNaves, setnombreNaves] = useState([]);
   let [paginaNaves, setpaginaNaves] = useState(1);
   const [loading, setloading] = useState(true);
-  const [spinner, setspinner] = useState(true)
+  const [spinner, setspinner] = useState(true);
 
   /* useEffect(() => {
     const obtenerNaves = async () => {
@@ -19,8 +19,6 @@ export const Naves = () => {
     obtenerNaves();
   }, [paginaNaves]); */
 
-  
-
   const getNaves = (page) => {
     const obtenerNaves = async () => {
       const url = `https://swapi.dev/api/starships/?page=${page}`;
@@ -28,7 +26,7 @@ export const Naves = () => {
       let previous = [...nombreNaves];
       setnombreNaves([...previous, ...result.data.results]);
       setloading(false);
-    }
+    };
     obtenerNaves();
   };
   const handleScroll = () => {
@@ -40,8 +38,9 @@ export const Naves = () => {
       setloading(true);
     }
     paginaNaves === 5 || setpaginaNaves(paginaNaves);
-    if(paginaNaves === 5) {setspinner(false)}; 
-
+    if (paginaNaves === 5) {
+      setspinner(false);
+    }
   };
   useEffect(() => {
     getNaves(paginaNaves);
@@ -71,11 +70,8 @@ export const Naves = () => {
               </div>
             );
           })}
-      
-          {spinner &&
-            <Spinner />
-            }
-        
+
+          {spinner && <Spinner />}
         </ul>
       </div>
     </div>

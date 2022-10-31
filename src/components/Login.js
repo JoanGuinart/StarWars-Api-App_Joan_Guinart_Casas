@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { Naves } from "../starships";
-
 
 export const Login = () => {
   const [emaillog, setemaillog] = useState("");
@@ -11,7 +10,7 @@ export const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
+
     const mail = localStorage.getItem("Email").replace(/"/g, "");
     const pass = localStorage.getItem("Password").replace(/"/g, "");
 
@@ -25,7 +24,6 @@ export const Login = () => {
       setflag(false);
     }
   };
-  
 
   return (
     <div>
@@ -53,11 +51,11 @@ export const Login = () => {
           <button type="submit" className="text-white btn btn-info">
             Login
           </button>
-           {flag && (
-            <Alert  color="primary" variant="danger">
+          {flag && (
+            <Alert color="primary" variant="danger">
               Please Fill Every Field
             </Alert>
-          )} 
+          )}
         </form>
       ) : (
         <Naves />
