@@ -11,8 +11,8 @@ export const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const mail = localStorage.getItem("Email").replace(/"/g, "");
-    const pass = localStorage.getItem("Password").replace(/"/g, "");
+    const mail = localStorage.getItem("EMAIL").replace(/"/g, "");
+    const pass = localStorage.getItem("PASSWORD").replace(/"/g, "");
 
     if (!emaillog || !passwordlog) {
       setflag(true);

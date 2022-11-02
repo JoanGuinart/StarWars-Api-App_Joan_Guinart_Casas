@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { Login } from "./Login";
+import useLocalStorage from "./UseLocalStorage";
 
 function Registration() {
-  const [email, setemail] = useState([]);
-  const [password, setpassword] = useState([]);
+
+  
+  const [email, setemail] = useLocalStorage('EMAIL','j')
+  const [password, setpassword] = useLocalStorage('PASSWORD','x');
 
   const [name, setname] = useState("");
   const [phone, setphone] = useState("");
@@ -17,9 +20,6 @@ function Registration() {
       setflag(true);
     } else {
       setflag(false);
-      localStorage.setItem("Password", JSON.stringify(password));
-      localStorage.setItem("Email", JSON.stringify(email));
-
       console.log("saved in local storage");
       setlogin(!login);
     }
@@ -50,7 +50,6 @@ function Registration() {
               className="form-control"
               placeholder="Enter Your Email"
               onChange={(event) => setemail(event.target.value)}
-              /* onChange={(event) => EMAIL.push(event.target.value)} */
             />
           </div>
           <div className="form-group">
@@ -60,7 +59,6 @@ function Registration() {
               className="form-control"
               placeholder="Enter Password"
               onChange={(event) => setpassword(event.target.value)}
-              /*  onChange={(event) => PASSWORD.push(event.target.value)} */
             />
           </div>
           <div className="form-group">
